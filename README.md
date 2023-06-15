@@ -27,10 +27,31 @@ Step13:Click start button and check the output
 ## THEORY:
 
 ## PROGRAM:
+#include <Stepper.h></br>
+const int stepsPerRevolution = 200; // change this to fit the number of steps per revolution</br>
+// for your motor</br>
+// initialize the stepper library on pins 8 through 11:</br>
+Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);</br>
+void setup() {</br>
+// set the speed at 60 rpm:</br>
+myStepper.setSpeed(60);</br>
+// initialize the serial port:</br>
+Serial.begin(9600);</br>
+}</br>
+void loop() {</br>
+// step one revolution in one direction:</br>
+Serial.println("clockwise");</br>
+myStepper.step(stepsPerRevolution);</br>
+delay(500);</br>
+// step one revolution in the other direction:</br>
+Serial.println("counterclockwise");</br>
+myStepper.step(-stepsPerRevolution);</br>
+delay(500);</br>
+}</br>
 
 ## CIRCUIT DIAGRAM:
-
+![image](https://github.com/AMANKUMAR2541/Stepper-motor-Interfacing-/assets/132323363/1e7dab02-d4de-4868-b253-164765048443)
 ## OUTPUT:
-
+![image](https://github.com/AMANKUMAR2541/Stepper-motor-Interfacing-/assets/132323363/e8fa9a02-7510-445a-a15d-2ccafacbd449)
 ## RESULT:
 Thus the speed and direction of the stepper motor was controlled using Arduino UNO controller.
